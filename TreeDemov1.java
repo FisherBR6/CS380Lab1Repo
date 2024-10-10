@@ -53,14 +53,22 @@ class Node{
 	      }//closing main if-else 
 	   }
 	   
-	   /*
-	   pre-order traversal
-	   Prints the value of every node preorder
-	   */
-	   public void preOrderTraversal(Node root){
-		//implement in here
-		   
-	   }
+	   /**
+	     * Use pre-order traversal to display the BST
+	     * @param root  root value of the BST
+	     **/
+	    public void preOrderTraversal(Node root){
+	        //base case
+	        if(root == null){
+	            return;
+	        }
+	        //print the current node value
+	        System.out.print(root.value+" ");
+	        //go left recursively
+	        preOrderTraversal(root.left);
+	        //go right recursively
+	        preOrderTraversal(root.right);
+	    }
 
 	   
 	   
