@@ -72,12 +72,23 @@ class Node{
 
 	   
 	   
-	   /*
-	   in-order traversal
-	   */
-	   public void inOrderTraversal(Node root){
-	      //implement in here
-	   }
+	   /**
+	     * Use in-order traversal to display the BST
+	     * @param root  root value of the BST
+	     **/
+	    public void inOrderTraversal(Node root){
+	        //base case
+	        if(root == null){
+	            return;
+	        }
+
+	        //go left recursively
+	        inOrderTraversal(root.left);
+	        //print the current node value
+	        System.out.print(root.value+" ");
+	        //go right recursively
+	        inOrderTraversal(root.right);
+	    }
 	   
 	   
 	   
