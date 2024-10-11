@@ -92,14 +92,24 @@ class Node{
 	   
 	   
 	   
-	   /*
-	   post-order traversal
-	   */
-	  
-	   public void postOrderTraversal(Node root){
-         //implement in here
-		   
-	   }
+	   /**
+	     * Use post-order traversal to display the BST
+	     * @param root  root value of the BST
+	     **/
+	    public void postOrderTraversal(Node root){
+	        //base case
+	        if(root == null){
+	            return;
+	        }
+	
+	        //go left recursively
+	        postOrderTraversal(root.left);
+	        //go right recursively
+	        postOrderTraversal(root.right);
+	        //print the current node value
+	        System.out.print(root.value+" ");
+	
+	    }
 	   
 	   
 	   
