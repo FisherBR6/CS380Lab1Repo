@@ -113,14 +113,28 @@ class Node{
 	   
 	   
 	   
-	   /*
-	   a method to find the node in the tree
-	   with a specific value
-	   */
-	   public boolean find(Node root, int key){
-		 //implement in here
-		  
-	   }
+	   /**
+	     * Use pre-order traversal to find the desired key
+	     * @param root root value of the BST
+	     * @param key the value to search for in the BST
+	     **/
+	    public boolean find(Node root, int key){
+	        //if root is empty or desired value is not found return false
+	        if(root == null){
+	            return false;
+	        }
+	        //if desired value is found, return true
+	        if(root.value == key){
+	            return true;
+	        }
+	        //otherwise, traverse the tree
+	        else if(key < root.value){
+	            return find(root.left, key);
+	        }else{
+	            return find(root.right, key);
+	        }
+	
+	    }
 	   
 	   
 	   
