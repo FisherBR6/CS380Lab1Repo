@@ -138,14 +138,39 @@ class Node{
 	   
 	   
 	   
-	   /*
-	   a method to find the node in the tree
-	   with a smallest key
-	   */
-	   public int getMin(Node root){
-         //implement in here
-	      
-	   }
+	   /**
+	     * Retrieve the min value of the BST
+	     * @param root root value of the BST
+	     * @return return the min value as an int
+	     **/
+	    public int getMin(Node root){
+	        //initialize the min variable with the tree root value
+	        int min = root.value;
+	        if (root == null) return Integer.MIN_VALUE;
+	
+	        //traverse the BST using a stack and an arraylist
+	        Stack<Node> stack = new Stack<Node>();
+	        ArrayList<Integer> orderList = new ArrayList<Integer>();
+	        for (Node node = root;;)
+	        {
+	            if (node == null)
+	            {
+	                if (stack.empty()) break;
+	                node = stack.pop();
+	                //if the current node value is less than the min value, update the min value
+	                if (node.value < min)
+	                    min = node.value;
+	                orderList.add(node.value);
+	                node = node.right;
+	            }
+	            else
+	            {
+	                stack.push(node);
+	                node = node.left;
+	            }
+	        }
+	        return min;
+	    }
 	  
 	  
 	  
