@@ -174,13 +174,40 @@ class Node{
 	  
 	  
 	  
-	   /*
-	   a method to find the node in the tree
-	   with a largest key
-	   */
-	   public int getMax(Node root){
-         //implement in here
-	   }
+	   /**
+	     * Retrieve the max value of the BST
+	     * @param root root value of the BST
+	     * @return return the max value as an int
+	     **/
+	    public int getMax(Node root){
+	        //initialize the max value with the current root value
+	        int max = root.value;
+	        if (root == null) return Integer.MIN_VALUE;
+	
+	        //traverse the BST using a stack and an arraylist
+	        Stack<Node> stack = new Stack<Node>();
+	        ArrayList<Integer> orderList = new ArrayList<Integer>();
+	        for (Node node = root;;)
+	        {
+	            if (node == null)
+	            {
+	                if (stack.empty()) break;
+	
+	                node = stack.pop();
+	                //if the current node value is greater than the max value, update the max value
+	                if (node.value > max)
+	                    max = node.value;
+	                orderList.add(node.value);
+	                node = node.right;
+	            }
+	            else
+	            {
+	                stack.push(node);
+	                node = node.left;
+	            }
+	        }
+	        return max;
+	    }
 	   
 	   
 	   
